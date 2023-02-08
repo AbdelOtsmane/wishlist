@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wichlist-29062": {
+      "hosting": {
+        "angular-firebase-crud": [
+          "wichlist-29062"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wichlist-29062"
+  }
+}
