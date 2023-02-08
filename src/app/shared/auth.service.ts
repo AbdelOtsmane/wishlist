@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider } from '@angular/fire/auth';
+import { GoogleAuthProvider } from '@angular/fire/auth';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  
+  
 
-  constructor( private fireauth: AngularFireAuth, private router: Router) { }
+  constructor( private fireauth: AngularFireAuth, private router: Router) {}
 
   // Login method
   login(email: string, password: string){
@@ -25,6 +29,7 @@ export class AuthService {
         alert('Bad credential!');
         this.router.navigate(['/login']);
     });
+    
   }
 
   // Register Method
@@ -76,6 +81,20 @@ export class AuthService {
       alert(err.message);
     })
   }
+
+  
+
+  authenticated() : boolean {
+    //this.fireauth.currentUser.
+    if(localStorage.getItem('user') || localStorage.getItem('token')){
+      return true;
+    } else {
+      return false;
+    }
+    
+  }
+  
+
   
   
 }
